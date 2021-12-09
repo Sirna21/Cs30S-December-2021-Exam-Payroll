@@ -12,11 +12,12 @@
 public class Employee {
     //*** Class Variables ***
     
-    private static int nextID = 1000;       // unique id for next employee
-
+    private static int nextID = 1;       // unique id for next employee
+    final double MAXHOUR = 40;
+    final double OVERTIMERATE = 1.5;
     //*** Instance Variables ***
     
-    private static int HoursWorked;         //Hours worked for employee
+    private static double HoursWorked;         //Hours worked for employee
     private static double HourlyWage;      // Hourly wage for employee
     private static int id;                 //id of employee
     
@@ -31,7 +32,7 @@ public class Employee {
     }// end default/no-arg constructor
     
     // full arg constructor
-    public Employee(int hw, double hlw){
+    public Employee(double hw, double hlw){
         id = nextID++;          // set unique id for emplyee object
                                 // and increment nextID so the next object
         
@@ -41,6 +42,16 @@ public class Employee {
     }// end default/no-arg constructor
     
     //*** Getters ***
+    /*****************************************
+    * Description: get employee id
+    * 
+    * Interface:
+    * 
+    * @return       int: id number
+    * ****************************************/
+    public int getId(){
+        return id;
+    }// end getId
     /*****************************************
     * Description: get empolyee hourly wage
     * 
@@ -58,8 +69,22 @@ public class Employee {
     
     * @return      int: hours employee has worked
     * ****************************************/
-    public int getHw(){
+    public double getHw(){
       return this.HoursWorked;
+    }
+    /*****************************************
+    * Description: Regular Pay emplyee will earn based on their hours worked
+    * 
+    * Interface:
+    
+    * @return      int: Regular Pay
+    * ****************************************/
+    public double getRegularPay(){
+      double OvertimeHours = getHw() - MAXHOUR;
+      double regularhours = getHw() - OvertimeHours;
+      
+      double RegularPay = regularhours * getHlw();
+      return RegularPay;
     }
     /*****************************************
     * Description: get empolyee Overtime Pay
@@ -68,20 +93,25 @@ public class Employee {
     
     * @return      int: overtime 
     * ****************************************/
-    public int getOvertimePay(){
-      return this.HoursWorked;
-    }
-    // /*****************************************
-    // * Description: Regular Pay emplyee will earn based on their hours worked
-    // * 
-    // * Interface:
+    public double getOvertimePay(){
+      double OvertimeHours = getHw() - MAXHOUR;
+      double OvertimeWage = getHlw() * OVERTIMERATE;
     
-    // * @return      int: Regular Pay
-    // * ****************************************/
-    // public int getRegularPay(){
-      // //int a = this.HoursWorked * this.HourlyWage;
-      
-    // }
+      double OtPay = OvertimeHours * OvertimeWage;
+      return OtPay;
+    }
+    /*****************************************
+    * Description: get empolyee Overtime Pay
+    * 
+    * Interface:
+    
+    * @return      int: overtime 
+    * ****************************************/
+    public double getGrossPay(){
+      double GrossPay = getOvertimePay() + getRegularPay();
+      return GrossPay;
+    }
+    
     //*** Setters ***
     
     /*****************************************

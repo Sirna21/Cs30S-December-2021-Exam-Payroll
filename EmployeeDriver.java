@@ -2,7 +2,7 @@ import java.util.Scanner;
 import javax.swing.*;
 import java.io.*;
 import java.text.NumberFormat;
-
+import java.util.ArrayList;
 /** ***************************************************
  *  Name:           Sveinson
  *  Class:          CS30S
@@ -17,6 +17,8 @@ public class EmployeeDriver {
 
     public static void main(String[] args) throws IOException{
     // ***** constants *******
+    
+    final int NUMSINDATA = 9;       // number of lines in data file
     
     // ***** variables *****
     
@@ -38,6 +40,9 @@ public class EmployeeDriver {
         //NumberFormat currency = NumberFormat.getCurrencyInstance();
         
         // file io buffers for reading and writing to text files
+        
+        ArrayList<Employee> employee = new ArrayList<>();
+
         
         //BufferedReader fin = new BufferedReader(new FileReader("filename.txt"));
         //PrintWriter fout = new PrintWriter(new BufferedWriter(new FileWriter("outfle.txt")));
