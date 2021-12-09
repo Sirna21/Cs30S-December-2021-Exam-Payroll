@@ -61,6 +61,27 @@ public class Employee {
     public int getHw(){
       return this.HoursWorked;
     }
+    /*****************************************
+    * Description: get empolyee Overtime Pay
+    * 
+    * Interface:
+    
+    * @return      int: overtime 
+    * ****************************************/
+    public int getOvertimePay(){
+      return this.HoursWorked;
+    }
+    // /*****************************************
+    // * Description: Regular Pay emplyee will earn based on their hours worked
+    // * 
+    // * Interface:
+    
+    // * @return      int: Regular Pay
+    // * ****************************************/
+    // public int getRegularPay(){
+      // //int a = this.HoursWorked * this.HourlyWage;
+      
+    // }
     //*** Setters ***
     
     /*****************************************
@@ -85,4 +106,25 @@ public class Employee {
     public void  setHlw(double HHlw){
       this.HourlyWage = HHlw;
     }
-} // end of public class
+    
+    //toString
+     /*****************************************
+    * Description: override toString
+    * 
+    * Interface:
+    * 
+    * 
+    * @return               String: Hourly wage and Hours Worked
+    * ****************************************/
+    // other methods
+    @Override
+  public String toString(){
+      
+        StringBuilder St = new StringBuilder();
+        //St.append(String.format ( "ID of Employee" + id()));
+        St.append(String.format("Hours Worked" + this.getHw()));
+        St.append(String.format( " $" + this.getHlw()));
+            
+        return St.toString(); 
+    }
+}// end of class
