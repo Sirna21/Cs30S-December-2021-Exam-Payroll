@@ -41,19 +41,18 @@ public class EmployeeClient {
         
         ArrayList<Employee> employee = new ArrayList<>();
 
+
         
         //BufferedReader fin = new BufferedReader(new FileReader("filename.txt"));
         //PrintWriter fout = new PrintWriter(new BufferedWriter(new FileWriter("outfle.txt")));
     
     // ***** print banners *****
     
-        banner = "*****************************" + nl;
-        banner += "Name:        Sveinson" + nl;
-        banner += "Class:       CS30S" + nl;
-        banner += "Assignment:  Ax Qy" + nl;
-        banner += "*****************************" + nl + nl;
-        
-        System.out.println(banner);
+
+    ProgramInfo B = new ProgramInfo("DecemberExam");
+    
+    System.out.println(B.getBanner());
+
         //fout.print(banner);
     
     // ***** Get Input *****
@@ -61,7 +60,8 @@ public class EmployeeClient {
         // prompt for input
         // read input from keyboard
         // echo input back to console window
-    
+
+        
     // ***** Main Processing *****
     
     Employee employee1 = new Employee(35, 12.50);           //first employee data
@@ -74,14 +74,44 @@ public class EmployeeClient {
     Employee employee8 = new Employee(40, 32.75);           //8th employee data
     Employee employee9 = new Employee(41, 30.00);           //9th employee data
     
-    System.out.println(employee1);
+    employee.add(employee1);
+    employee.add(employee2);
+    employee.add(employee3);
+    employee.add(employee4);
+    employee.add(employee5);
+    employee.add(employee6);
+    employee.add(employee7);
+    employee.add(employee8);
+    employee.add(employee9);
     
+    
+    for(Employee e: employee){
+      System.out.println(e);    
+    }
+    
+    employee.get(8).setHw(40);
+    employee.get(8).setHlw(21.00);
+    System.out.println("________________________________" + nl);
+    System.out.println("Hours Worked and Hourly Wage of Employee 1008 has been changed" + nl + nl);
+    System.out.println(employee8 + nl + nl);
+    
+    
+    System.out.println("________________________________" + nl);
+    System.out.println("Here is Employee 1003 info as requested from record" + nl + nl);
+    System.out.println(employee.get(2));
+    
+    System.out.println("________________________________" + nl + nl);
+    System.out.println("Employee 1003 has been removed from record " + employee.remove(2));
+
     // ***** Print Formatted Output *****
     
     // ***** Closing Message *****
     
-        System.out.println();
-        System.out.println("end of processing");
+
+    System.out.println();
+    System.out.println(B.getClosingMessage());
+        
+
         //fout.println("End of Processing");
         
     // **** close io buffers *****
