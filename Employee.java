@@ -12,6 +12,8 @@
 public class Employee {
     //*** Class Variables ***
 
+
+
     private static int nextID = 1001;       // unique id for next employee
     final double MAXHOUR = 40;              // The maximum hours for regular hours
     final double OVERTIMERATE = 1.5;        // The overtime rate applied to the wage
@@ -38,6 +40,7 @@ public class Employee {
         id = nextID++;          // set unique id for emplyee object
         // and increment nextID so the next object
 
+
         this.HourlyWage = hlw;  //setting variables 
         this.HoursWorked = hw;  //setting variables
 
@@ -51,6 +54,7 @@ public class Employee {
      * 
      * @return       int: id number
      * ****************************************/
+
     public int getId(){
         return id;
     }// end getId
@@ -63,6 +67,7 @@ public class Employee {
      * ****************************************/
     public double getHlw(){
         return this.HourlyWage;
+
     }//end of getHlw
     /*****************************************
      * Description: get empolyee Hours Worked
@@ -74,6 +79,7 @@ public class Employee {
     public double getHw(){
         return this.HoursWorked;
     }//end of getHw
+
     /*****************************************
      * Description: Regular Pay emplyee will earn based on their hours worked
      * 
@@ -82,6 +88,7 @@ public class Employee {
      * @return      int: Regular Pay
      * ****************************************/
     public double getRegularPay(){
+
         double OvertimeHours = getHw() - MAXHOUR;         //getting the overtime hours worked
         double regularhours = getHw() - OvertimeHours;    //finding the reglular hours worked
 
@@ -93,10 +100,12 @@ public class Employee {
         double RegularPay = regularhours * getHlw();      //findng the regular pay
         return RegularPay;
     }//end of getRegularPay
+
     /*****************************************
      * Description: get empolyee Overtime Pay
      * 
      * Interface:
+
 
      * @return      double: overtime pay
      * ****************************************/
@@ -113,10 +122,12 @@ public class Employee {
 
         return OtPay;
     }//End of OverTimePay
+
     /*****************************************
      * Description: get empolyee Gross Pay
      * 
      * Interface:
+
 
      * @return      double: GrossPay 
      * ****************************************/
@@ -124,6 +135,7 @@ public class Employee {
         double GrossPay = getOvertimePay() + getRegularPay();     //adding Regular pay with Ot pay to get the gross pay
         return GrossPay;
     }//End of GrossPay
+
 
     //*** Setters ***
 
@@ -143,11 +155,13 @@ public class Employee {
      * 
      * Interface:
      * 
+
      * @param        double: new HourlyWage for employee
      * 
      * ****************************************/
     public void  setHlw(double HHlw){
         this.HourlyWage = HHlw;
+
     }//end of setHlw
     // other methods
     @Override
@@ -162,6 +176,7 @@ public class Employee {
         St.append(String.format("%-2s %.2f %s", "Regular Pay: \t $", getRegularPay(), "\n"));
         St.append(String.format("%-2s %.2f %s", "Overtime Pay: \t $", getOvertimePay(), "\n"));
         St.append(String.format("%-2s %.2f %s", "Gross Pay: \t $", getGrossPay(), "\n"));
+
 
         return St.toString(); 
     }//end of toString
