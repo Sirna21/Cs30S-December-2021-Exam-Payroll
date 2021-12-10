@@ -12,21 +12,22 @@
 public class Employee {
     //*** Class Variables ***
     
-    private static int nextID = 1;       // unique id for next employee
+    private static int nextID = 1001;       // unique id for next employee
     final double MAXHOUR = 40;
     final double OVERTIMERATE = 1.5;
     //*** Instance Variables ***
-    
-    private static double HoursWorked;         //Hours worked for employee
-    private static double HourlyWage;      // Hourly wage for employee
-    private static int id;                 //id of employee
+    private String banner = "";             // output banner
+    private  double HoursWorked;         //Hours worked for employee
+    private  double HourlyWage;      // Hourly wage for employee
+    private  int id;                 //id of employee
+    private String nl = System.lineSeparator();
     
     //*** Constructors ***
     
     public Employee(){
         id = nextID++;          // set unique id of employee object
                                 // and increment nextID so the next object
-        HoursWorked = 0;
+        HoursWorked = 0.0;
         HourlyWage = 0.0;
         
     }// end default/no-arg constructor
@@ -42,6 +43,21 @@ public class Employee {
     }// end default/no-arg constructor
     
     //*** Getters ***
+    /*****************************************
+    * Description: get employee id
+    * 
+    * Interface:
+    * 
+    * @return       int: id number
+    * ****************************************/
+    public String getBanner(){
+        banner = "*****************************" + nl;
+        banner += "Name:        Sveinson" + nl;
+        banner += "Class:       CS30S" + nl;
+        banner += "Assignment:  Ax Qy" + nl;
+        banner += "*****************************" + nl + nl;
+        return banner;
+    }// end getId
     /*****************************************
     * Description: get employee id
     * 
@@ -83,6 +99,10 @@ public class Employee {
       double OvertimeHours = getHw() - MAXHOUR;
       double regularhours = getHw() - OvertimeHours;
       
+      if(regularhours < 0){
+        regularhours = 0;
+      }
+      
       double RegularPay = regularhours * getHlw();
       return RegularPay;
     }
@@ -96,8 +116,15 @@ public class Employee {
     public double getOvertimePay(){
       double OvertimeHours = getHw() - MAXHOUR;
       double OvertimeWage = getHlw() * OVERTIMERATE;
-    
+      
+      if(OvertimeHours < 0){
+         OvertimeHours = 0; 
+      }
+      
       double OtPay = OvertimeHours * OvertimeWage;
+      
+      
+      
       return OtPay;
     }
     /*****************************************
@@ -136,25 +163,18 @@ public class Employee {
     public void  setHlw(double HHlw){
       this.HourlyWage = HHlw;
     }
-    
-    //toString
-     /*****************************************
-    * Description: override toString
-    * 
-    * Interface:
-    * 
-    * 
-    * @return               String: Hourly wage and Hours Worked
-    * ****************************************/
     // other methods
     @Override
-  public String toString(){
-      
+    public String toString(){
+
         StringBuilder St = new StringBuilder();
-        //St.append(String.format ( "ID of Employee" + id()));
-        St.append(String.format("Hours Worked" + this.getHw()));
-        St.append(String.format( " $" + this.getHlw()));
-            
+        St.append(String.format ( "ID of Employee \t" + getId() + "\n"));
+        St.append(String.format("%-2s %.0f %s", "Hours Worked \t", this.getHw(), "\n"));
+        St.append(String.format("%-2s %.2f %s", "Hourly Wage \t $", this.getHlw(), "\n"));
+        St.append(String.format("%-2s %.2f %s", "Regular Pay: \t $", getRegularPay(), "\n"));
+        St.append(String.format("%-2s %.2f %s", "Overtime Pay: \t $", getOvertimePay(), "\n"));
+        St.append(String.format("%-2s %.2f %s", "Gross Pay: \t $", getGrossPay(), "\n"));
+
         return St.toString(); 
     }
 }// end of class
