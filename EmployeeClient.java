@@ -40,15 +40,19 @@ public class EmployeeClient {
         // file io buffers for reading and writing to text files
         
         ArrayList<Employee> employee = new ArrayList<>();
+
+
         
         //BufferedReader fin = new BufferedReader(new FileReader("filename.txt"));
         //PrintWriter fout = new PrintWriter(new BufferedWriter(new FileWriter("outfle.txt")));
     
     // ***** print banners *****
     
+
     ProgramInfo B = new ProgramInfo("DecemberExam");
     
     System.out.println(B.getBanner());
+
         //fout.print(banner);
     
     // ***** Get Input *****
@@ -56,10 +60,9 @@ public class EmployeeClient {
         // prompt for input
         // read input from keyboard
         // echo input back to console window
+
         
     // ***** Main Processing *****
-
-    
     
     Employee employee1 = new Employee(35, 12.50);           //first employee data
     Employee employee2 = new Employee(40, 17.25);           //second employee data
@@ -70,7 +73,6 @@ public class EmployeeClient {
     Employee employee7 = new Employee(48, 15.50);           //7th employee data
     Employee employee8 = new Employee(40, 32.75);           //8th employee data
     Employee employee9 = new Employee(41, 30.00);           //9th employee data
-
     
     employee.add(employee1);
     employee.add(employee2);
@@ -100,13 +102,16 @@ public class EmployeeClient {
     
     System.out.println("________________________________" + nl + nl);
     System.out.println("Employee 1003 has been removed from record " + employee.remove(2));
+
     // ***** Print Formatted Output *****
     
     // ***** Closing Message *****
     
+
     System.out.println();
     System.out.println(B.getClosingMessage());
         
+
         //fout.println("End of Processing");
         
     // **** close io buffers *****

@@ -11,6 +11,7 @@
 
 public class Employee {
     //*** Class Variables ***
+
     
     private static int nextID = 1001;       // unique id for next employee
     final double MAXHOUR = 40;
@@ -23,27 +24,30 @@ public class Employee {
     private String nl = System.lineSeparator();
     
     //*** Constructors ***
-    
+
     public Employee(){
         id = nextID++;          // set unique id of employee object
+
                                 // and increment nextID so the next object
         HoursWorked = 0.0;
+
         HourlyWage = 0.0;
-        
+
     }// end default/no-arg constructor
-    
+
     // full arg constructor
     public Employee(double hw, double hlw){
         id = nextID++;          // set unique id for emplyee object
-                                // and increment nextID so the next object
-        
+        // and increment nextID so the next object
+
         this.HourlyWage = hlw;
         this.HoursWorked = hw;
-        
+
     }// end default/no-arg constructor
-    
+
     //*** Getters ***
     /*****************************************
+
     * Description: get employee id
     * 
     * Interface:
@@ -65,37 +69,41 @@ public class Employee {
     * 
     * @return       int: id number
     * ****************************************/
+
     public int getId(){
         return id;
     }// end getId
     /*****************************************
-    * Description: get empolyee hourly wage
-    * 
-    * Interface:
-    
-    * @return      double: hourly wage of employee
-    * ****************************************/
+     * Description: get empolyee hourly wage
+     * 
+     * Interface:
+
+     * @return      double: hourly wage of employee
+     * ****************************************/
     public double getHlw(){
-      return this.HourlyWage;
+        return this.HourlyWage;
     }
+
     /*****************************************
-    * Description: get empolyee HoursWorked
-    * 
-    * Interface:
-    
-    * @return      int: hours employee has worked
-    * ****************************************/
+     * Description: get empolyee HoursWorked
+     * 
+     * Interface:
+
+     * @return      int: hours employee has worked
+     * ****************************************/
     public double getHw(){
-      return this.HoursWorked;
+        return this.HoursWorked;
     }
+
     /*****************************************
-    * Description: Regular Pay emplyee will earn based on their hours worked
-    * 
-    * Interface:
-    
-    * @return      int: Regular Pay
-    * ****************************************/
+     * Description: Regular Pay emplyee will earn based on their hours worked
+     * 
+     * Interface:
+
+     * @return      int: Regular Pay
+     * ****************************************/
     public double getRegularPay(){
+
       double OvertimeHours = getHw() - MAXHOUR;
       double regularhours = getHw() - OvertimeHours;
       
@@ -105,15 +113,18 @@ public class Employee {
       
       double RegularPay = regularhours * getHlw();
       return RegularPay;
+
     }
+
     /*****************************************
-    * Description: get empolyee Overtime Pay
-    * 
-    * Interface:
-    
-    * @return      int: overtime 
-    * ****************************************/
+     * Description: get empolyee Overtime Pay
+     * 
+     * Interface:
+
+     * @return      int: overtime 
+     * ****************************************/
     public double getOvertimePay(){
+
       double OvertimeHours = getHw() - MAXHOUR;
       double OvertimeWage = getHlw() * OVERTIMERATE;
       
@@ -126,43 +137,49 @@ public class Employee {
       
       
       return OtPay;
+
+      
     }
+
     /*****************************************
-    * Description: get empolyee Overtime Pay
-    * 
-    * Interface:
-    
-    * @return      int: overtime 
-    * ****************************************/
+     * Description: get empolyee Gross Pay
+     * 
+     * Interface:
+
+     * @return      int: GrossPay 
+     * ****************************************/
     public double getGrossPay(){
-      double GrossPay = getOvertimePay() + getRegularPay();
-      return GrossPay;
+        double GrossPay = getOvertimePay() + getRegularPay();
+        return GrossPay;
     }
-    
+
     //*** Setters ***
-    
+
     /*****************************************
-    * Description: set product HoursWorked to new HoursWorked
-    * 
-    * Interface:
-    * 
-    * @param        String: new HoursWorked for product
-    * 
-    * ****************************************/
+     * Description: set product HoursWorked to new HoursWorked
+     * 
+     * Interface:
+     * 
+     * @param        String: new HoursWorked for product
+     * 
+     * ****************************************/
     public void  setHw(int HHw){
-      this.HoursWorked = HHw;
+        this.HoursWorked = HHw;
     }
+
     /*****************************************
-    * Description: set HourlyWage to new HourlyWage
-    * 
-    * Interface:
-    * 
-    * @param        double: new HourlyWage for product
-    * 
-    * ****************************************/
+     * Description: set HourlyWage to new HourlyWage
+     * 
+     * Interface:
+     * 
+     * @param        double: new HourlyWage for product
+     * 
+     * ****************************************/
     public void  setHlw(double HHlw){
-      this.HourlyWage = HHlw;
+        this.HourlyWage = HHlw;
     }
+
+
     // other methods
     @Override
     public String toString(){
@@ -175,6 +192,7 @@ public class Employee {
         St.append(String.format("%-2s %.2f %s", "Overtime Pay: \t $", getOvertimePay(), "\n"));
         St.append(String.format("%-2s %.2f %s", "Gross Pay: \t $", getGrossPay(), "\n"));
 
+
         return St.toString(); 
     }
-}// end of class
+}// end of Employee Clas
